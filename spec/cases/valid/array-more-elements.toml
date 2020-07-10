@@ -1,0 +1,52 @@
+[inputSimulatorConfig]
+hws = ["amd_starter","amd_big"]
+growth_values = [50000, 200000, 1000000]
+token_prices = [0.15, 0.3, 3.0]
+cloudunits_price_ranges = [3]
+export_path = ""
+
+[interpolation]
+cpr_improve = "0:0,60:40"
+cpr_sales_price_decline = "0:0,60:40"
+utilization = "20:80,40:90"
+
+[hardware_types]
+[hardware_types.amd]
+name = "amd"
+
+[[hardware_types.amd.components]]
+name = "margin1"
+description = "Margin per node for threefold and its partners"
+cost = 400.0
+[[hardware_types.amd.devices]]
+
+[[hardware_types.amd.devices.components]]
+name = "amd1"
+nr = 1
+
+[[hardware_types.amd.devices.components]]
+name = "amd2"
+nr = 1
+
+[hardware]
+
+[hardware.amd_big]
+name = "amd_big"
+hardware_type = "amd"
+[[hardware.amd_big.nodes]]
+name = "compute"
+template = "amd_big"
+nr = 20
+[[hardware.amd_big.overhead]]
+name = "switch"
+template = "swtich"
+nr = 2
+
+
+[hardware.amd_starter]
+name = "amd_starter"
+hardware_type = "amd"
+[[hardware.amd_starter.nodes]]
+name = "compute"
+template = "amd_starter"
+nr = 1

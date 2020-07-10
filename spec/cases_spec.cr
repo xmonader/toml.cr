@@ -36,6 +36,10 @@ end
 
 private def compare(toml_hash : Hash, json_hash : Hash)
   if toml_hash.keys.to_set != json_hash.keys.to_set
+    # TODO: remove when works.
+    puts "toml keys: ", toml_hash.keys.to_set.to_s
+    puts "json keys: ", json_hash.keys.to_set.to_s
+
     fail "keys are different"
   end
 
